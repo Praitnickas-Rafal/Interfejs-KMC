@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Moduł tworzenia zamówień</title>
+    <style>
+    body {
+        min-width: 800px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    table {
+        margin-top: 30px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    #formDiv {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 5px;
+    }
+
+    #buttonsDiv {
+        margin-left: auto;
+        margin-right: 120px;
+        margin-top: 57px;
+    }
+
+    #orderId, #orderName, #companyName, #materials, #zatwierdzButton {
+        margin-top: 5px;
+    }
+
+    #formDiv #prawePrzyciski {
+        width: 190px;
+        height: 30px;
+        margin: 5px;
+    }
+
+    #zamowicButton {
+        width: 190px;
+        height: 30px;
+        margin: 5px;
+    }
+
+    .center-div {
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+    }
+
+    #formDiv input, #formDiv button {
+        width: 300px;
+    }
+
+    #formDiv #materialsQuantity {
+        width: 50px;
+    }
+</style>
+
+</head>
+<body>
+
+<div id="formDiv">
+    <div>
+        <h2>Moduł tworzenia zamówień</h2>
+        <input type="text" id="orderId" placeholder="ID zamówienia"><br>
+        <input type="text" id="orderName" placeholder="Nazwa zamówienia"><br>
+        <input type="text" id="companyName" placeholder="Nazwa firmy"><br>
+        <input type="text" id="materials" placeholder="Materiały które są potrzebne">
+        <input type="number" id="materialsQuantity" min="1" value="1"><br>
+        <button type="button" id="zatwierdzButton" onclick="submitForm()">Zatwierdź</button>
+    </div>
+    <div id="buttonsDiv">
+        <button type="button" id="prawePrzyciski">Kontrola jakości</button><br>
+        <button type="button" id="prawePrzyciski">Stan magazynów</button><br>
+        <button type="button" id="prawePrzyciski">Redagować lista zamówień</button>
+    </div>
+</div>
+
+<table id="dataTable" align="center">
+    <thead>
+        <tr>
+            <th>ID zamówienia</th>
+            <th>Nazwa zamówienia</th>
+            <th>Nazwa firmy</th>
+            <th>Materiały które są potrzebne</th>
+            <th>Ilość</th>
+        </tr>
+        <tr>
+            <td>123456</td>
+            <td>Zamówienie</td>
+            <td>Firma</td>
+            <td>Drzewo</td>
+            <td>3</td>
+        </tr>
+    </thead>
+</table>
+
+<div class="center-div">
+    <button type="button" id="zamowicButton" onclick="order()">Zamówić</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
