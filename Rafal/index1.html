@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tworzenie Zadań</title>
+  <link rel="stylesheet" type="text/css" href="interfejs1/style.css">
+ 
+
+    </script>
+</head>
+<body>
+
+<h1>Hamonogram</h1>
+ <img src="img/op.png" alt="">
+  
+
+
+    <div class="left">
+      <h1>Tworzenie Zadań</h1>
+      
+      <form id="taskForm">
+        <label for="taskName">Nazwa Zadania:</label>
+        <input type="text" id="taskName" required><br>
+
+        <label for="taskDescription">Opis Zadania:</label>
+        <textarea id="taskDescription" required></textarea><br>
+
+        <label for="employee">Pracownik:</label>
+        <select id="employee" required>
+          <option value="Stolarz">Stolarz</option>
+          <option value="Malarz">Malarz</option>
+          <option value="Piekarz">Piekarz</option>
+        </select><br>
+
+        <label for="startDate">Od:</label>
+        <input type="date" id="startDate" required><br>
+
+        <label for="endDate">Do:</label>
+        <input type="date" id="endDate" required><br>
+
+        <label for="taskType">Typ Zadania:</label>
+        <select id="taskType" required>
+          <option value="Malowanie">Malowanie</option>
+          <option value="Krojenie">Krojenie</option>
+        </select><br>
+
+        <label for="product">Co produkować:</label>
+        <select id="product" required>
+          <option value="Krzesło">Krzesło</option>
+          <option value="Piłka">Piłka</option>
+          <option value="Bułka">Bułka</option>
+        </select><br>
+
+        <label for="quantity">Ilość produkcji:</label>
+        <input type="number" id="quantity" required><br>
+
+        <button type="submit">Zapisz</button>
+        <div>  <h2>Lista Zadań</h2>
+            <ul id="taskList"></ul></div>
+      </form>
+  </div>
+  <div class="pu-btn">
+  <div class="button">
+  <button>Analiza wydajności i raportowanie wyników produkcyjnych....</button>
+  <button>Zarządzanie stanem magazynowym oraz kontrolną zapasów</button>
+  <button>Kontrola kosztów produkcji oraz zarządzanie budżetem.........</button>
+  <script src="script.js"></script>
+  </div>
+  </div>    
+</body>
+</html>
