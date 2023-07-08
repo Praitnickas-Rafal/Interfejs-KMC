@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Lists and Employee Groups</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-areas:
+                "header"
+                "middle"
+                "top"
+                "bottom";
+            grid-gap: 10px;
+        }
+
+        .window {
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: DodgerBlue;
+            color: white;
+            height: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            grid-column: 1 / span 2;
+        }
+
+        .middle {
+            grid-area: middle;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            grid-column: 1 / span 2;
+        }
+
+        .strip {
+            display: flex;
+            gap: 20px;
+        }
+
+        .strip a{
+            color: black;
+			display: flex;
+            align-items: center;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top {
+            grid-area: top;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .bottom {
+            grid-area: bottom;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .top-left {
+			background-color: DodgerBlue;
+            grid-column: 1 / span 1;
+            height: 370px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .top-right {
+			background-color: DodgerBlue;
+            grid-column: 2 / span 1;
+            height: 370px;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .bottom-left {
+			background-color: DodgerBlue;
+            grid-column: 1 / span 1;
+            height: 370px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .bottom-right {
+			background-color: DodgerBlue;
+            grid-column: 2 / span 1;
+            height: 370px;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .face {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="window header">
+            <h4>Nadzór nad zespołem produkcyjnym oraz koordynacja pracy innych pracowników</h4>
+        </div>
+        <div class="window middle">
+            <div class="strip">
+                <a href="#">Narzędzi</a>
+                <a href="#">Pomoc</a>
+                <a href="#">Strona Firmy</a>
+            </div>
+			<div class="strip a">
+				<div id="time"></div>
+            </div>
+            <div class="buttons">
+                <button>Grupa pracowników</button>
+                <button>Wstecz</button>
+                <button>Wylogować się</button>
+            </div>
+        </div>
+        <div class="window top-left">
+            <h2>Lista zadań</h2>
+            <img src="Capture11.png" alt="1">
+        </div>
+        <div class="window top-right">
+            <div>
+                <h2>Nazwa grupy pracowników</h2>
+                <img src="Capture22.png" alt="2">
+        </div>
+		</div>
+        <div class="window bottom-left">
+            <h2>Lista wykonanych zadań</h2>
+            <img src="Capture33.png" alt="3">
+        </div>
+        <div class="window bottom-right">
+				<h2>Lista pracowników</h2>
+				<img src="Capture44.png" alt="4">
+                <input type="checkbox" id="select-all" />
+                <label for="select-all">Połaczone do systemu</label>
+		</div>
+    <script>
+		function updateTime() {
+            const timeElement = document.getElementById("time");
+            const currentDate = new Date().toLocaleDateString();
+            const currentTime = new Date().toLocaleTimeString();
+            timeElement.textContent = currentDate + ' ' + currentTime;
+        }
+
+        setInterval(updateTime, 1000);
+
+        // Task List
+        const taskList = document.getElementById("task-list");
+
+        function addTask(task) {
+            const li = document.createElement("li");
+            li.textContent = task;
+            taskList.appendChild(li);
+        }
+
+        addTask("Task 1");
+        addTask("Task 2");
+        addTask("Task 3");
+        addTask("Task 4");
+
+        // Completed Task List
+        const completedTaskList = document.getElementById("completed-task-list");
+
+        function addCompletedTask(task) {
+            const li = document.createElement("li");
+            li.textContent = task;
+            completedTaskList.appendChild(li);
+        }
+
+        addCompletedTask("Completed Task 1");
+        addCompletedTask("Completed Task 2");
+        addCompletedTask("Completed Task 3");
+        addCompletedTask("Completed Task 4");
+
+        // Select All Checkbox
+        const selectAllCheckbox = document.getElementById("select-all");
+        const faces = document.querySelectorAll(".face");
+
+        selectAllCheckbox.addEventListener("change", function () {
+            const isChecked = selectAllCheckbox.checked;
+            faces.forEach((face) => {
+                face.checked = isChecked;
+            });
+        });
+
+    </script>
+</body>
+</html>
